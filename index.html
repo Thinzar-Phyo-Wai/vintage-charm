@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Charm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Import Futura-like font via Typekit fallback */
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap');
+    </style>
+</head>
+<body>
+    <!-- Vintage Decorative Top Border -->
+    <div class="vintage-border"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo on Left -->
+            <div class="logo-container">
+                <div class="logo">
+                    <span class="logo-main">Vintage</span>
+                    <span class="logo-sub">Charm</span>
+                </div>
+                <div class="logo-divider"></div>
+                <div class="logo-tagline">Surprise With Virtual Gifts</div>
+            </div>
+
+            <!-- Navigation Links on Right -->
+            <div class="nav-right">
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html" class="nav-link active">
+                        <span class="nav-text">Home</span>
+                        <span class="nav-dot"></span>
+                    </a>
+                    <a href="about.html" class="nav-link">
+                        <span class="nav-text">About</span>
+                        <span class="nav-dot"></span>
+                    </a>
+                    <a href="game.html" class="nav-link">
+                        <span class="nav-text">Crossword</span>
+                        <span class="nav-dot"></span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="hero-section" id="home">
+            <div class="hero-container">
+                <!-- Hero Content Left Side -->
+                <div class="hero-content">
+                    <div class="vintage-ornament top-left">
+                        <svg viewBox="0 0 100 100" width="40" height="40">
+                            <path d="M50,20 C70,20 80,30 80,50 C80,70 70,80 50,80 C30,80 20,70 20,50 C20,30 30,20 50,20 Z" 
+                                  fill="none" stroke="var(--accent-gold)" stroke-width="1.5"/>
+                            <circle cx="50" cy="50" r="8" fill="none" stroke="var(--accent-gold)" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="hero-line">Preserve Memories with</span>
+                        <span class="hero-line neon-text">Our Surprise Gifts To Have Fun</span>
+                    </h1>
+                    
+                    <div class="neon-description-container">
+                        <p class="hero-description neon-glow">
+                            Craft elegant virtual surprises that capture the warmth of vintage charm 
+                            for those special moments with family, partners, and friends.
+                        </p>
+                        <div class="neon-glow-effect"></div>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="hero-buttons">
+                        <button class="cta-button vintage-button" onclick="window.location.href='about.html'">
+                            <i class="fas fa-gift"></i>
+                
+                            <span>Explore</span>
+                        
+                        </button>
+                        <button class="cta-button secondary-button" onclick="window.location.href='game.html'">
+                            <i class="fas fa-crossword"></i>
+                            <span>Play Crossword</span>
+                        </button>
+                    </div>
+                    
+                    <div class="vintage-ornament bottom-left">
+                        <svg viewBox="0 0 100 100" width="40" height="40">
+                            <path d="M30,30 L70,30 L70,70 L30,70 Z" 
+                                  fill="none" stroke="var(--accent-gold)" stroke-width="1.5"/>
+                            <path d="M35,35 L65,35 L65,65 L35,65 Z" 
+                                  fill="none" stroke="var(--accent-gold)" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Hero Image Right Side -->
+                <div class="hero-image-container">
+                    <div class="image-frame">
+                        <!-- Main Hero Image -->
+                        <img src="images/gifts_box.gif" 
+                             alt="Vintage gift box with flowers" class="main-hero-image">
+                        
+                        <!-- Decorative Overlay Elements -->
+                        <div class="image-overlay">
+                            <div class="polaroid polaroid-1">
+                                <div class="polaroid-image" style="background-image: url('images/moments_gift.jpg')"></div>
+                                <div class="polaroid-label">Moments</div>
+                            </div>
+                            <div class="polaroid polaroid-2">
+                                <div class="polaroid-image" style="background-image: url('images/memories.jpg')"></div>
+                                <div class="polaroid-label">Memories</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="floating-element envelope">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="floating-element heart">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Image Caption -->
+                    <div class="image-caption">
+                        <div class="caption-line"></div>
+                        <p>Every surprise tells a story of love & connection</p>
+                    </div>
+                </div>
+            </div>
+        </section> 
+    </main>
+
+
+    <!-- ===== LOVE LETTERS & MUSIC SECTION ===== -->
+<section class="love-music-section">
+    <div class="section-container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="header-ornament">
+                <i class="fas fa-heart"></i>
+                <span class="header-line"></span>
+                <span class="header-title">Cherished Moments</span>
+                <span class="header-line"></span>
+                <i class="fas fa-heart"></i>
+            </div>
+            <h2 class="section-heading">Share Love Through <span class="accent-text">Letters & Music</span></h2>
+            <p class="section-subheading">Create timeless memories with heartfelt messages and soothing melodies</p>
+        </div>
+
+        <!-- Two Beautiful Cards -->
+        <div class="cards-container">
+            <!-- CARD 1: READ LOVE LETTERS -->
+            <div class="vintage-card letter-card" id="loveLetterCard">
+                <div class="card-badge">
+                    <span class="badge-text">Most Loved</span>
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="card-bg-pattern"></div>
+                
+                <!-- Floating Hearts Animation -->
+                <div class="floating-hearts">
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                </div>
+                
+                <!-- Flower Decorations -->
+                <div class="flower-decoration">
+                    <i class="fas fa-seedling"></i>
+                    <i class="fas fa-leaf"></i>
+                    <i class="fas fa-seedling"></i>
+                </div>
+                
+                <div class="card-icon-wrapper">
+                    <div class="card-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                </div>
+                
+                <h3 class="card-title">Read Love Letters</h3>
+                
+                <div class="card-description">
+                    <p>Heartfelt messages to your loved ones with beautiful vintage letters.</p>
+                </div>
+                
+                <div class="letter-categories">
+                    <div class="category-item" data-category="family">
+                        <i class="fas fa-home"></i>
+                        <span>Family</span>
+                    </div>
+                    <div class="category-item" data-category="partner">
+                        <i class="fas fa-heart"></i>
+                        <span>Partner</span>
+                    </div>
+                    <div class="category-item" data-category="friend">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Friend</span>
+                    </div>
+                </div>
+                
+                <button class="card-btn letter-btn" id="openLetterBtn">
+                    <span>Open a Letter</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                
+                <div class="card-footer-ornament">
+                    <span>✧</span> with love <span>✧</span>
+                </div>
+            </div>
+            
+            <!-- CARD 2: LISTEN MUSIC -->
+            <div class="vintage-card music-card" id="musicPlayerCard">
+                <div class="card-bg-pattern"></div>
+                
+                <!-- Music Notes Animation -->
+                <div class="floating-notes">
+                    <i class="fas fa-music"></i>
+                    <i class="fas fa-music"></i>
+                    <i class="fas fa-music"></i>
+                    <i class="fas fa-music"></i>
+                </div>
+                
+                <!-- Vinyl Decoration -->
+                <div class="vinyl-decoration">
+                    <div class="mini-vinyl">
+                        <div class="vinyl-disc"></div>
+                        <div class="vinyl-center"></div>
+                    </div>
+                </div>
+                
+                <div class="card-icon-wrapper">
+                    <div class="card-icon music-icon">
+                        <i class="fas fa-headphones-alt"></i>
+                    </div>
+                </div>
+                
+                <h3 class="card-title">Listen to Music</h3>
+                
+                <div class="card-description">
+                    <p>Set the perfect mood with our vintage-inspired playlist.</p>
+                </div>
+                
+                <!-- Mini Music Player Preview -->
+                <div class="music-preview">
+                    <div class="now-playing">
+                        <span class="track-label">Now Playing</span>
+                        <span class="track-name">"SuperMarket Flowers"</span>
+                    </div>
+                    <div class="preview-wave">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                
+                <button class="card-btn music-btn" id="openMusicPlayerBtn">
+                    <span>Open Music Player</span>
+                    <i class="fas fa-play"></i>
+                </button>
+                
+                <div class="card-footer-ornament">
+                    <span>♪</span> set the mood <span>♪</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== LETTERS MODAL (FAMILY, PARTNER, FRIEND) ===== -->
+<div class="modal-overlay" id="letterModalOverlay">
+    <div class="letter-modal-container">
+        <div class="letter-modal-header">
+            <div class="modal-header-decoration">
+                <i class="fas fa-heart"></i>
+                <span>Love Letters</span>
+                <i class="fas fa-heart"></i>
+            </div>
+            <button class="modal-close-btn" id="closeLetterModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="letter-modal-body">
+            <div class="letter-category-tabs">
+                <button class="category-tab active" data-category="family">
+                    <i class="fas fa-home"></i>
+                    <span>Family</span>
+                </button>
+                <button class="category-tab" data-category="partner">
+                    <i class="fas fa-heart"></i>
+                    <span>Partner</span>
+                </button>
+                <button class="category-tab" data-category="friend">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Friend</span>
+                </button>
+            </div>
+            
+            <!-- FAMILY LETTER -->
+            <div class="letter-content active" id="family-letter">
+                <div class="letter-paper">
+                    <div class="letter-decoration-top">
+                        <i class="fas fa-leaf"></i>
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                   
+                    <div class="letter-greeting">My Dearest Family,</div>
+                    <div class="letter-message">
+                        <p>You are the roots that ground me and the wings that set me free. Every memory we've created together is a treasure I hold close to my heart.</p>
+                        <p>Thank you for your endless love, support, and the countless sacrifices you've made. Home is not a place, it's the feeling I get when I'm with you.</p>
+                        <p>No matter where life takes me, your love remains my anchor and my compass.</p>
+                    </div>
+                    <div class="letter-closing">
+                        <p>With all my love,</p>
+                        <div class="signature">Your Forever Grateful</div>
+                    </div>
+                    <div class="letter-decoration-bottom">
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="letter-flower">
+                    <i class="fas fa-seedling"></i>
+                </div>
+            </div>
+            
+            <!-- PARTNER LETTER -->
+            <div class="letter-content" id="partner-letter">
+                <div class="letter-paper">
+                    <div class="letter-decoration-top">
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    
+                    <div class="letter-greeting">My Beloved,</div>
+                    <div class="letter-message">
+                        <p>You came into my life and painted it with colors I never knew existed. Every moment with you feels like a beautiful dream I never want to wake from.</p>
+                        <p>Your smile is my favorite sunrise, your laughter the sweetest melody. In your arms, I've found my home; in your heart, I've found my peace.</p>
+                        <p>Thank you for being my partner, my best friend, and my greatest adventure.</p>
+                    </div>
+                    <div class="letter-closing">
+                        <p>Forever yours,</p>
+                        <div class="signature">Your Soulmate</div>
+                    </div>
+                    <div class="letter-decoration-bottom">
+                        <i class="fas fa-heart"></i>
+                        <span>&</span>
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="letter-flower">
+                    <i class="fas fa-rose"></i>
+                </div>
+            </div>
+            
+            <!-- FRIEND LETTER -->
+            <div class="letter-content" id="friend-letter">
+                <div class="letter-paper">
+                    <div class="letter-decoration-top">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-smile"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                    <div class="letter-greeting">My Wonderful Friend,</div>
+                    <div class="letter-message">
+                        <p>Some people come into our lives and leave footprints on our hearts. You, my friend, have left an entire garden.</p>
+                        <p>Thank you for the late-night talks, the spontaneous adventures, and the comfort of knowing I'm never alone. Life is brighter because you're in it.</p>
+                        <p>Here's to more laughter, more memories, and a friendship that only grows stronger with time.</p>
+                    </div>
+                    <div class="letter-closing">
+                        <p>With gratitude,</p>
+                        <div class="signature">Your Forever Friend</div>
+                    </div>
+                    <div class="letter-decoration-bottom">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="letter-flower">
+                    <i class="fas fa-smile-wink"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== MUSIC PLAYER MODAL ===== -->
+<div class="modal-overlay" id="musicModalOverlay">
+    <div class="music-modal-container">
+        <div class="music-modal-header">
+            <div class="modal-header-decoration">
+                <i class="fas fa-headphones-alt"></i>
+                <span>Vintage Melodies</span>
+                <i class="fas fa-music"></i>
+            </div>
+            <button class="modal-close-btn" id="closeMusicModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="music-modal-body">
+            <!-- Album Art with Vinyl -->
+            <div class="album-art-container">
+                <div class="vinyl-record">
+                    <div class="vinyl-label">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="album-overlay">
+                    <img src="images/music.gif" 
+                         alt="Vintage record player" class="album-image">
+                </div>
+                <div class="tonearm">
+                    <div class="tonearm-base"></div>
+                    <div class="tonearm-arm"></div>
+                    <div class="tonearm-head"></div>
+                </div>
+            </div>
+            
+            <!-- Now Playing Info -->
+            <div class="now-playing-info">
+                <span class="status-badge">● Now Playing</span>
+                <h4 class="song-title">SuperMarket Flowers/h4>
+                <p class="song-artist">Ed Sheeran</p>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="music-progress">
+                <span class="current-time" id="currentTime">0:00</span>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <span class="total-time" id="totalTime">3:45</span>
+            </div>
+            
+            <!-- Music Controls -->
+            <div class="music-controls-player">
+                <button class="control-btn shuffle" id="shuffleBtn">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button class="control-btn prev" id="prevBtn">
+                    <i class="fas fa-backward"></i>
+                </button>
+                <button class="play-pause-btn" id="playPauseBtn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="control-btn next" id="nextBtn">
+                    <i class="fas fa-forward"></i>
+                </button>
+                <button class="control-btn repeat" id="repeatBtn">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+            
+            <!-- Volume Control -->
+            <div class="volume-controls">
+                <i class="fas fa-volume-down"></i>
+                <div class="volume-slider-container">
+                    <div class="volume-slider">
+                        <div class="volume-level" id="volumeLevel"></div>
+                    </div>
+                </div>
+                <i class="fas fa-volume-up"></i>
+            </div>
+            
+            <!-- Playlist -->
+            <div class="playlist-section">
+                <h5 class="playlist-title">Playlist</h5>
+                <div class="playlist-items">
+                    <div class="playlist-item active">
+                        <span class="play-indicator"><i class="fas fa-play"></i></span>
+                        <span class="track-number">01</span>
+                        <span class="track-name">SuperMarket Flowers</span>
+                        <span class="track-duration">3:41</span>
+                    </div>
+                    <div class="playlist-item">
+                        <span class="track-number">02</span>
+                        <span class="track-name">Until I Found You</span>
+                        <span class="track-duration">3:04</span>
+                    </div>
+                    <div class="playlist-item">
+                        <span class="track-number">03</span>
+                        <span class="track-name">Lover</span>
+                        <span class="track-duration">3:32</span>
+                    </div>
+                    <div class="playlist-item">
+                        <span class="track-number">04</span>
+                        <span class="track-name">Photograph</span>
+                        <span class="track-duration">4:24</span>
+                    </div>
+                    <div class="playlist-item">
+                        <span class="track-number">05</span>
+                        <span class="track-name">Just The Way You Are</span>
+                        <span class="track-duration">3:39</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Vintage Footer -->
+    <footer class="vintage-footer">
+        <div class="footer-content">
+            <div class="footer-line"></div>
+            <p class="footer-text">Crafted with elegance • Bringing joy to relationships worldwide</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://pinterest.com" class="social-icon"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
