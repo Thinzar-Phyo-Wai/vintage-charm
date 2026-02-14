@@ -302,31 +302,31 @@ function initMusicPlayer() {
             title: 'SuperMarket Flowers', 
             artist: 'Ed Sheeran', 
             duration: '3:41', 
-            src: '/assets/SuperMarket_Flowers.mp3' 
+            src: 'assets/SuperMarket_Flowers.mp3' 
         },
         { 
             title: 'Until I Found You', 
             artist: 'Stephen Sanchez', 
             duration: '3:04', 
-            src: '/assets/Until_I_Found_You.mp3' 
+            src: 'assets/Until_I_Found_You.mp3' 
         },
         { 
             title: 'Lover', 
             artist: 'Taylor Swift', 
             duration: '3:32', 
-            src: '/assets/Lover.mp3' 
+            src: 'assets/Lover.mp3' 
         },
         { 
             title: 'Photograph', 
             artist: 'Natalia Tsarikova', 
             duration: '4:24', 
-            src: '/assets/Photograph.mp3' 
+            src: 'assets/Photograph.mp3' 
         },
         { 
             title: 'Just The Way You Are', 
             artist: 'Bruno Mars', 
             duration: '3:39', 
-            src: '/assets/Just_Way_You_Are.mp3' 
+            src: 'assets/Just_Way_You_Are.mp3' 
         }
     ];
     
