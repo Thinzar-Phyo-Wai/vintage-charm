@@ -6,7 +6,7 @@ A beautiful virtual gift website where love meets nostalgia. Create personalized
 ## 🌟 Features
 
 - 💌 **Love Letters** - Heartfelt messages for family, partners, and friends
-- 🎵 **Vintage Music** - Soothing melodies to set the perfect mood
+- 🎁 Surprise Gift Box - Beautiful framed gifts with heartfelt messages for your loved ones
 - 🎮 **Family Crossword** - Fun puzzles celebrating the ones we love
 
 =======
