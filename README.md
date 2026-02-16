@@ -1,7 +1,7 @@
 
 # ✨ Vintage Charm
 
-A beautiful virtual gift website where love meets nostalgia. Create personalized surprises, read heartfelt love letters, enjoy vintage melodies, and play family-themed crossword puzzles.
+A beautiful virtual gift website where love meets nostalgia. Create personalized surprises, read heartfelt love letters and play family-themed crossword puzzles.
 
 ## 🌟 Features
 
