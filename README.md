@@ -10,6 +10,4 @@ A beautiful virtual gift website where love meets nostalgia. Create personalized
 - 🎮 **Family Crossword** - Fun puzzles celebrating the ones we love
 
 =======
-# vintage-charm
-A beautiful virtual gift website with love letters, music, and crossword game
 
