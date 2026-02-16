@@ -149,7 +149,7 @@
     </main>
 
 
-    <!-- ===== LOVE LETTERS & MUSIC SECTION ===== -->
+    <!-- ===== LOVE LETTERS & VIRTUAL GIFTS BOX SECTION ===== -->
 <section class="love-music-section">
     <div class="section-container">
         <!-- Section Header -->
@@ -161,8 +161,8 @@
                 <span class="header-line"></span>
                 <i class="fas fa-heart"></i>
             </div>
-            <h2 class="section-heading">Share Love Through <span class="accent-text">Letters & Music</span></h2>
-            <p class="section-subheading">Create timeless memories with heartfelt messages and soothing melodies</p>
+            <h2 class="section-heading">Share Love Through <span class="accent-text">Letters & Virtual Gifts</span></h2>
+            <p class="section-subheading">Create timeless memories with heartfelt messages</p>
         </div>
 
         <!-- Two Beautiful Cards -->
@@ -227,63 +227,8 @@
                     <span>✧</span> with love <span>✧</span>
                 </div>
             </div>
-            
-            <!-- CARD 2: LISTEN MUSIC -->
-            <div class="vintage-card music-card" id="musicPlayerCard">
-                <div class="card-bg-pattern"></div>
-                
-                <!-- Music Notes Animation -->
-                <div class="floating-notes">
-                    <i class="fas fa-music"></i>
-                    <i class="fas fa-music"></i>
-                    <i class="fas fa-music"></i>
-                    <i class="fas fa-music"></i>
-                </div>
-                
-                <!-- Vinyl Decoration -->
-                <div class="vinyl-decoration">
-                    <div class="mini-vinyl">
-                        <div class="vinyl-disc"></div>
-                        <div class="vinyl-center"></div>
-                    </div>
-                </div>
-                
-                <div class="card-icon-wrapper">
-                    <div class="card-icon music-icon">
-                        <i class="fas fa-headphones-alt"></i>
-                    </div>
-                </div>
-                
-                <h3 class="card-title">Listen to Music</h3>
-                
-                <div class="card-description">
-                    <p>Set the perfect mood with our vintage-inspired playlist.</p>
-                </div>
-                
-                <!-- Mini Music Player Preview -->
-                <div class="music-preview">
-                    <div class="now-playing">
-                        <span class="track-label">Now Playing</span>
-                        <span class="track-name">"SuperMarket Flowers"</span>
-                    </div>
-                    <div class="preview-wave">
-                        <span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                </div>
-                
-                <button class="card-btn music-btn" id="openMusicPlayerBtn">
-                    <span>Open Music Player</span>
-                    <i class="fas fa-play"></i>
-                </button>
-                
-                <div class="card-footer-ornament">
-                    <span>♪</span> set the mood <span>♪</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
+            
 <!-- ===== LETTERS MODAL (FAMILY, PARTNER, FRIEND) ===== -->
 <div class="modal-overlay" id="letterModalOverlay">
     <div class="letter-modal-container">
@@ -407,112 +352,395 @@
     </div>
 </div>
 
-<!-- ===== MUSIC PLAYER MODAL ===== -->
-<div class="modal-overlay" id="musicModalOverlay">
-    <div class="music-modal-container">
-        <div class="music-modal-header">
-            <div class="modal-header-decoration">
-                <i class="fas fa-headphones-alt"></i>
-                <span>Vintage Melodies</span>
-                <i class="fas fa-music"></i>
+            
+            <!-- CARD 2: VIRTUAL GIFT BOX (TRANSFORMED FROM MUSIC CARD) -->
+    <div class="vintage-card gift-card" id="giftCard">
+        <div class="card-badge">
+            <span class="badge-text">New</span>
+            <i class="fas fa-star"></i>
+        </div>
+        <div class="card-bg-pattern"></div>
+        
+        <!-- Floating Gift Icons Animation -->
+        <div class="floating-gifts">
+            <i class="fas fa-gift"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-crown"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        
+        <!-- Gift Box Decoration -->
+        <div class="gift-decoration">
+            <div class="mini-gift">
+                <div class="gift-box-mini">
+                    <div class="gift-lid-mini"></div>
+                    <div class="gift-base-mini"></div>
+                    <div class="gift-ribbon-mini"></div>
+                </div>
             </div>
-            <button class="modal-close-btn" id="closeMusicModal">
+        </div>
+        
+        <div class="card-icon-wrapper">
+            <div class="card-icon gift-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+        </div>
+        
+        <h3 class="card-title">Virtual Gift Box</h3>
+        
+        <div class="card-description">
+            <p>Open a beautiful surprise gift box for your special someone.</p>
+        </div>
+        
+        <!-- Gift Preview -->
+        <div class="gift-preview">
+            <div class="preview-box">
+                <span class="preview-ribbon"></span>
+                <span class="preview-bow"></span>
+            </div>
+            <span class="preview-text">Click to open</span>
+        </div>
+        
+        <button class="card-btn gift-btn" id="openGiftBoxBtn">
+            <span>Open Gift Box</span>
+            <i class="fas fa-gift"></i>
+        </button>
+        
+        <div class="card-footer-ornament">
+            <span>🎁</span> surprise <span>🎁</span>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- ===== VIRTUAL GIFT BOX MODAL ===== -->
+<div class="modal-overlay" id="giftBoxModalOverlay">
+    <div class="giftbox-modal-container">
+        <div class="giftbox-modal-header">
+            <div class="modal-header-decoration">
+                <i class="fas fa-gift"></i>
+                <span>Surprise Gift Box</span>
+                <i class="fas fa-star"></i>
+            </div>
+            <button class="modal-close-btn" id="closeGiftBoxModal">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         
-        <div class="music-modal-body">
-            <!-- Album Art with Vinyl -->
-            <div class="album-art-container">
-                <div class="vinyl-record">
-                    <div class="vinyl-label">
+        <div class="giftbox-modal-body">
+            <!-- Background Sparkles -->
+            <div class="sparkle-background">
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+            </div>
+            
+            <!-- Gift Box Container -->
+            <div class="giftbox-container">
+                <!-- Floating Hearts & Stars Animation -->
+                <div class="floating-gifts-bg">
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                
+                <!-- MAIN GIFT BOX - BEAUTIFULLY DESIGNED -->
+                <div class="gift-box closed" id="giftBox">
+                    <!-- Box Lid with Ribbon -->
+                    <div class="gift-lid">
+                        <div class="lid-ribbon horizontal"></div>
+                        <div class="lid-ribbon vertical"></div>
+                        <div class="lid-bow">
+                            <div class="bow-left"></div>
+                            <div class="bow-right"></div>
+                            <div class="bow-center"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Box Base -->
+                    <div class="gift-base">
+                        <div class="base-pattern"></div>
+                        <div class="base-ribbon horizontal"></div>
+                        <div class="base-ribbon vertical"></div>
+                        <div class="base-tag">
+                            <span>For You</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Shine Effect -->
+                    <div class="gift-shine"></div>
+                    
+                    <!-- Instruction with Glow -->
+                    <p class="gift-instruction">
+                        <span class="instruction-icon">✨</span>
+                        Click to open your surprise!
+                        <span class="instruction-icon">✨</span>
+                    </p>
+                </div>
+                
+                <!-- STEP 1: CHOOSE GIFT OPTIONS - BEAUTIFUL CARDS -->
+                <div class="choose-gift-section" id="chooseGiftSection" style="display: none;">
+                    <!-- Decorative Elements -->
+                    <div class="section-sparkles">
+                        <i class="fas fa-star"></i>
                         <i class="fas fa-heart"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                    <h3 class="choose-title">Who will receive this gift?</h3>
+                    
+                    <div class="gift-option-cards">
+                        <!-- Family Option - Warm & Cozy -->
+                        <div class="gift-option-card family-card" data-recipient="family" id="chooseFamily">
+                            <div class="card-glow"></div>
+                            <div class="option-icon-wrapper">
+                                <div class="option-icon family-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                            </div>
+                            <h4>Family</h4>
+                            <p>For those who raised you</p>
+                            <div class="option-preview">
+                                <span class="preview-emoji">🏡</span>
+                                <span class="preview-text">Love & Gratitude</span>
+                            </div>
+                            <div class="option-decoration">
+                                <i class="fas fa-leaf"></i>
+                                <i class="fas fa-leaf"></i>
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Partner Option - Romantic -->
+                        <div class="gift-option-card partner-card" data-recipient="partner" id="choosePartner">
+                            <div class="card-glow"></div>
+                            <div class="option-icon-wrapper">
+                                <div class="option-icon partner-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                            <h4>Partner</h4>
+                            <p>For your special someone</p>
+                            <div class="option-preview">
+                                <span class="preview-emoji">💕</span>
+                                <span class="preview-text">Endless Love</span>
+                            </div>
+                            <div class="option-decoration">
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Friend Option - Fun & Cheerful -->
+                        <div class="gift-option-card friend-card" data-recipient="friend" id="chooseFriend">
+                            <div class="card-glow"></div>
+                            <div class="option-icon-wrapper">
+                                <div class="option-icon friend-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                            </div>
+                            <h4>Friend</h4>
+                            <p>For your bestie</p>
+                            <div class="option-preview">
+                                <span class="preview-emoji">🎉</span>
+                                <span class="preview-text">Forever Friendship</span>
+                            </div>
+                            <div class="option-decoration">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="choose-note">✨ Click any card to reveal your surprise ✨</p>
+                </div>
+                
+                <!-- STEP 2: FAMILY GIFT - BEAUTIFUL FRAME -->
+                <div class="gift-content family-gift" id="familyGift" style="display: none;">
+                    <div class="gift-reveal-header">
+                        <button class="back-to-choose" id="backFromFamily">
+                            <i class="fas fa-arrow-left"></i> Choose Another
+                        </button>
+                    </div>
+                    
+                    <div class="gift-showcase">
+                        <div class="showcase-decoration left">
+                            <i class="fas fa-leaf"></i>
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        
+                        <div class="beautiful-frame family-frame">
+                            <div class="frame-ornament top">
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            
+                            <!-- Image Container with Overlay -->
+                            <div class="frame-image-container">
+                                <div class="image-overlay-glow"></div>
+                                <img src="images/family-gift.jpg" alt="Family Gift" class="frame-image">
+                                <div class="image-corner top-left"></div>
+                                <div class="image-corner top-right"></div>
+                                <div class="image-corner bottom-left"></div>
+                                <div class="image-corner bottom-right"></div>
+                            </div>
+                            
+                            <!-- Message with Heart -->
+                            <div class="frame-message">
+                                <i class="fas fa-quote-left"></i>
+                                <p>Family is where love begins, forever lasts.</p>
+                                <i class="fas fa-quote-right"></i>
+                                <div class="message-hearts">
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="frame-ornament bottom">
+                                <i class="fas fa-leaf"></i>
+                                <i class="fas fa-leaf"></i>
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="showcase-decoration right">
+                            <i class="fas fa-leaf"></i>
+                            <i class="fas fa-leaf"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="album-overlay">
-                    <img src="images/music.gif" 
-                         alt="Vintage record player" class="album-image">
+                
+                <!-- STEP 2: PARTNER GIFT - ROMANTIC FRAME -->
+                <div class="gift-content partner-gift" id="partnerGift" style="display: none;">
+                    <div class="gift-reveal-header">
+                        <button class="back-to-choose" id="backFromPartner">
+                            <i class="fas fa-arrow-left"></i> Choose Another
+                        </button>
+                    </div>
+                    
+                    <div class="gift-showcase">
+                        <div class="showcase-decoration left">
+                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        
+                        <div class="beautiful-frame partner-frame">
+                            <div class="frame-ornament top">
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            
+                            <!-- Image Container with Overlay -->
+                            <div class="frame-image-container">
+                                <div class="image-overlay-glow"></div>
+                                <img src="images/partner-gift.jpg" alt="Partner Gift" class="frame-image">
+                                <div class="image-corner top-left"></div>
+                                <div class="image-corner top-right"></div>
+                                <div class="image-corner bottom-left"></div>
+                                <div class="image-corner bottom-right"></div>
+                            </div>
+                            
+                            <!-- Message with Heart -->
+                            <div class="frame-message">
+                                <i class="fas fa-quote-left"></i>
+                                <p>You are my today and all of my tomorrows.</p>
+                                <i class="fas fa-quote-right"></i>
+                                <div class="message-hearts">
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="frame-ornament bottom">
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="showcase-decoration right">
+                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="tonearm">
-                    <div class="tonearm-base"></div>
-                    <div class="tonearm-arm"></div>
-                    <div class="tonearm-head"></div>
-                </div>
-            </div>
-            
-            <!-- Now Playing Info -->
-            <div class="now-playing-info">
-                <span class="status-badge">● Now Playing</span>
-                <h4 class="song-title">SuperMarket Flowers/h4>
-                <p class="song-artist">Ed Sheeran</p>
-            </div>
-            
-            <!-- Progress Bar -->
-            <div class="music-progress">
-                <span class="current-time" id="currentTime">0:00</span>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="progressBar"></div>
-                </div>
-                <span class="total-time" id="totalTime">3:45</span>
-            </div>
-            
-            <!-- Music Controls -->
-            <div class="music-controls-player">
-                <button class="control-btn shuffle" id="shuffleBtn">
-                    <i class="fas fa-random"></i>
-                </button>
-                <button class="control-btn prev" id="prevBtn">
-                    <i class="fas fa-backward"></i>
-                </button>
-                <button class="play-pause-btn" id="playPauseBtn">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button class="control-btn next" id="nextBtn">
-                    <i class="fas fa-forward"></i>
-                </button>
-                <button class="control-btn repeat" id="repeatBtn">
-                    <i class="fas fa-redo"></i>
-                </button>
-            </div>
-            
-            
-            
-            <!-- Playlist -->
-            <div class="playlist-section">
-                <h5 class="playlist-title">Playlist</h5>
-                <div class="playlist-items">
-                    <div class="playlist-item active">
-                        <span class="play-indicator"><i class="fas fa-play"></i></span>
-                        <span class="track-number">01</span>
-                        <span class="track-name">SuperMarket Flowers</span>
-                        <span class="track-duration">3:41</span>
+                
+                <!-- STEP 2: FRIEND GIFT - CHEERFUL FRAME -->
+                <div class="gift-content friend-gift" id="friendGift" style="display: none;">
+                    <div class="gift-reveal-header">
+                        <button class="back-to-choose" id="backFromFriend">
+                            <i class="fas fa-arrow-left"></i> Choose Another
+                        </button>
                     </div>
-                    <div class="playlist-item">
-                        <span class="track-number">02</span>
-                        <span class="track-name">Until I Found You</span>
-                        <span class="track-duration">3:04</span>
-                    </div>
-                    <div class="playlist-item">
-                        <span class="track-number">03</span>
-                        <span class="track-name">Lover</span>
-                        <span class="track-duration">3:32</span>
-                    </div>
-                    <div class="playlist-item">
-                        <span class="track-number">04</span>
-                        <span class="track-name">Photograph</span>
-                        <span class="track-duration">4:24</span>
-                    </div>
-                    <div class="playlist-item">
-                        <span class="track-number">05</span>
-                        <span class="track-name">Just The Way You Are</span>
-                        <span class="track-duration">3:39</span>
+                    
+                    <div class="gift-showcase">
+                        <div class="showcase-decoration left">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        
+                        <div class="beautiful-frame friend-frame">
+                            <div class="frame-ornament top">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            
+                            <!-- Image Container with Overlay -->
+                            <div class="frame-image-container">
+                                <div class="image-overlay-glow"></div>
+                                <img src="images/friend-gift.jpg" alt="Friend Gift" class="frame-image">
+                                <div class="image-corner top-left"></div>
+                                <div class="image-corner top-right"></div>
+                                <div class="image-corner bottom-left"></div>
+                                <div class="image-corner bottom-right"></div>
+                            </div>
+                            
+                            <!-- Message with Heart -->
+                            <div class="frame-message">
+                                <i class="fas fa-quote-left"></i>
+                                <p>Friends like you make life beautiful.</p>
+                                <i class="fas fa-quote-right"></i>
+                                <div class="message-hearts">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="frame-ornament bottom">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="showcase-decoration right">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
     <!-- Vintage Footer -->
     <footer class="vintage-footer">
