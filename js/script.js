@@ -1,75 +1,96 @@
-// Navigation Functionality
+
+// Navigation 
 class VintageNavigation {
     constructor() {
         this.navLinks = document.getElementById('navLinks');
         this.menuToggle = document.getElementById('menuToggle');
         this.navItems = document.querySelectorAll('.nav-link');
+        this.body = document.body;
+        this.menuOpen = false;
         this.init();
     }
 
     init() {
         // Mobile menu toggle
         if (this.menuToggle) {
-            this.menuToggle.addEventListener('click', () => this.toggleMenu());
+            this.menuToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleMenu();
+            });
         }
 
         // Close mobile menu when clicking a link
         this.navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                this.closeMenu();
+            item.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    this.closeMenu();
+                }
                 this.setActiveLink(item);
             });
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (this.navLinks.classList.contains('active') && 
+            if (this.menuOpen && 
+                this.navLinks && 
                 !this.navLinks.contains(e.target) && 
+                this.menuToggle && 
                 !this.menuToggle.contains(e.target)) {
                 this.closeMenu();
             }
         });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                const href = anchor.getAttribute('href');
-                if (href === '#') return;
-                
-                e.preventDefault();
-                const targetElement = document.querySelector(href);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+        // Handle escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.menuOpen) {
+                this.closeMenu();
+            }
         });
 
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', () => this.handleScroll());
-        
-        // Initialize neon glow effects
-        this.initNeonEffects();
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && this.menuOpen) {
+                this.closeMenu();
+            }
+        });
+
+        // Set active link
+        this.setActiveLinkBasedOnPage();
     }
 
     toggleMenu() {
-        this.navLinks.classList.toggle('active');
-        this.menuToggle.classList.toggle('active');
+        if (!this.navLinks || !this.menuToggle) return;
         
-        // Prevent body scroll when menu is open
-        if (this.navLinks.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
+        if (this.menuOpen) {
+            this.closeMenu();
         } else {
-            document.body.style.overflow = '';
+            this.openMenu();
         }
     }
 
+    openMenu() {
+        this.menuOpen = true;
+        
+        // Add classes
+        this.navLinks.classList.add('active');
+        this.menuToggle.classList.add('active');
+        
+        
+        this.body.style.overflow = 'hidden';
+    }
+
     closeMenu() {
+        if (!this.navLinks || !this.menuToggle) return;
+        
+        this.menuOpen = false;
+        
+        // Remove classes
         this.navLinks.classList.remove('active');
         this.menuToggle.classList.remove('active');
-        document.body.style.overflow = '';
+        
+        // Restore scroll
+        this.body.style.overflow = '';
     }
 
     setActiveLink(clickedItem) {
@@ -77,127 +98,25 @@ class VintageNavigation {
             item.classList.remove('active');
         });
         clickedItem.classList.add('active');
-    }
-
-    handleScroll() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 2px 20px rgba(60, 53, 45, 0.05)';
-            navbar.style.backdropFilter = 'blur(15px)';
-            navbar.style.backgroundColor = 'rgba(247, 242, 232, 0.98)';
-        } else {
-            navbar.style.boxShadow = 'none';
-            navbar.style.backdropFilter = 'blur(10px)';
-            navbar.style.backgroundColor = 'rgba(247, 242, 232, 0.95)';
+        
+        const link = clickedItem.getAttribute('href');
+        if (link && !link.startsWith('#')) {
+            localStorage.setItem('activePage', link);
         }
     }
 
-    initNeonEffects() {
-        // Create floating particles for neon effect
-        const neonContainer = document.querySelector('.neon-description-container');
-        if (!neonContainer) return;
+    setActiveLinkBasedOnPage() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         
-        for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('neon-particle');
-            particle.style.position = 'absolute';
-            particle.style.width = Math.random() * 4 + 1 + 'px';
-            particle.style.height = particle.style.width;
-            particle.style.backgroundColor = 'var(--neon-gold)';
-            particle.style.borderRadius = '50%';
-            particle.style.opacity = Math.random() * 0.5 + 0.2;
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animation = `floatParticle ${Math.random() * 3 + 2}s ease-in-out infinite`;
-            particle.style.animationDelay = Math.random() * 2 + 's';
-            
-            neonContainer.appendChild(particle);
-        }
-        
-        // Add CSS for particle animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes floatParticle {
-                0%, 100% {
-                    transform: translate(0, 0) scale(1);
-                    opacity: 0.2;
-                }
-                25% {
-                    transform: translate(10px, -10px) scale(1.2);
-                    opacity: 0.4;
-                }
-                50% {
-                    transform: translate(5px, 5px) scale(0.8);
-                    opacity: 0.3;
-                }
-                75% {
-                    transform: translate(-10px, 10px) scale(1.1);
-                    opacity: 0.5;
-                }
+        this.navItems.forEach(item => {
+            const link = item.getAttribute('href');
+            if (link === currentPage) {
+                item.classList.add('active');
             }
-        `;
-        document.head.appendChild(style);
+        });
     }
 }
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    const navigation = new VintageNavigation();
-    
-    // Add interactive button effects
-    const buttons = document.querySelectorAll('.cta-button');
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-3px)';
-            if (this.classList.contains('vintage-button')) {
-                this.style.boxShadow = '0 10px 30px rgba(183, 110, 87, 0.4)';
-            }
-        });
-        
-        button.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            if (this.classList.contains('vintage-button')) {
-                this.style.boxShadow = '0 4px 15px rgba(183, 110, 87, 0.2)';
-            }
-        });
-    });
-    
-    // Add parallax effect to polaroids
-    const polaroids = document.querySelectorAll('.polaroid');
-    window.addEventListener('mousemove', (e) => {
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
-        
-        polaroids.forEach((polaroid, index) => {
-            const speed = 0.02;
-            const x = (mouseX - 0.5) * 20 * speed * (index + 1);
-            const y = (mouseY - 0.5) * 20 * speed * (index + 1);
-            
-            polaroid.style.transform = `rotate(var(--rotation)) translate(${x}px, ${y}px)`;
-        });
-    });
-    
-    // Add vintage ornament animation
-    const ornaments = document.querySelectorAll('.vintage-ornament svg');
-    ornaments.forEach((ornament, index) => {
-        const paths = ornament.querySelectorAll('path, circle');
-        paths.forEach((path, i) => {
-            const length = path.getTotalLength();
-            path.style.strokeDasharray = length;
-            path.style.strokeDashoffset = length;
-            path.style.animation = `drawStroke 2s ease ${index * 0.5 + i * 0.3}s forwards`;
-        });
-    });
-});
-
-
-// ===== LOVE LETTERS & Virtual Gift Box =====
-document.addEventListener('DOMContentLoaded', function() {
-    initLoveLetters();
-    initGiftBox();
-});
-
-// ---------- FIXED: LOVE LETTERS WITH NO LAYOUT SHIFT ----------
+// ===== LOVE LETTERS  =====
 function initLoveLetters() {
     const openLetterBtn = document.getElementById('openLetterBtn');
     const letterModal = document.getElementById('letterModalOverlay');
@@ -206,39 +125,41 @@ function initLoveLetters() {
     const letterContents = document.querySelectorAll('.letter-content');
     const categoryItems = document.querySelectorAll('.category-item');
     
-    // Calculate scrollbar width to prevent layout shift
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.documentElement.style.setProperty('--scrollbar-width', scrollbarWidth + 'px');
+    if (!letterModal) return;
     
     function openModal() {
-        if (!letterModal) return;
-        
-        // Save current scroll position
+        // Store current scroll position
         const scrollY = window.scrollY;
         
-        // Add modal-open class to body (prevents scroll)
-        document.body.classList.add('modal-open');
-        document.body.style.top = `-${scrollY}px`;
+        // Lock body scroll
+        document.body.style.overflow = 'hidden';
         document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
         document.body.style.left = '0';
         document.body.style.right = '0';
+        document.body.style.width = '100%';
         
         // Show modal
         letterModal.classList.add('active');
+        
+        // Reset modal scroll position to top
+        const modalContainer = letterModal.querySelector('.letter-modal-container');
+        if (modalContainer) {
+            modalContainer.scrollTop = 0;
+        }
     }
     
     function closeModal() {
-        if (!letterModal) return;
-        
-        // Get scroll position
+        // Get the scroll position
         const scrollY = document.body.style.top;
         
-        // Remove modal class
-        document.body.classList.remove('modal-open');
+        // Unlock body scroll
+        document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.left = '';
         document.body.style.right = '';
+        document.body.style.width = '';
         
         // Restore scroll position
         window.scrollTo(0, parseInt(scrollY || '0') * -1);
@@ -249,22 +170,33 @@ function initLoveLetters() {
     
     // Open modal
     if (openLetterBtn) {
-        openLetterBtn.addEventListener('click', openModal);
+        openLetterBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
     }
     
     // Close modal
     if (closeLetterBtn) {
-        closeLetterBtn.addEventListener('click', closeModal);
-    }
-    
-    // Close when clicking outside
-    if (letterModal) {
-        letterModal.addEventListener('click', function(e) {
-            if (e.target === letterModal) {
-                closeModal();
-            }
+        closeLetterBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal();
         });
     }
+    
+    // Close when clicking outside (on the overlay)
+    letterModal.addEventListener('click', function(e) {
+        if (e.target === letterModal) {
+            closeModal();
+        }
+    });
+    
+    // Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && letterModal.classList.contains('active')) {
+            closeModal();
+        }
+    });
     
     // Category tabs
     categoryTabs.forEach(tab => {
@@ -277,18 +209,25 @@ function initLoveLetters() {
             letterContents.forEach(content => {
                 content.classList.remove('active');
             });
-            document.getElementById(`${category}-letter`)?.classList.add('active');
+            
+            const targetLetter = document.getElementById(`${category}-letter`);
+            if (targetLetter) targetLetter.classList.add('active');
+            
+            // Scroll modal to top when changing category
+            const modalContainer = letterModal.querySelector('.letter-modal-container');
+            if (modalContainer) {
+                modalContainer.scrollTop = 0;
+            }
         });
     });
     
-    // Quick category selection
+    // Quick category selection from main page
     categoryItems.forEach(item => {
         item.addEventListener('click', function() {
             const category = this.dataset.category;
+            openModal();
             
-            if (letterModal) {
-                openModal();
-                
+            setTimeout(() => {
                 categoryTabs.forEach(tab => {
                     tab.classList.remove('active');
                     if (tab.dataset.category === category) {
@@ -299,12 +238,20 @@ function initLoveLetters() {
                 letterContents.forEach(content => {
                     content.classList.remove('active');
                 });
-                document.getElementById(`${category}-letter`)?.classList.add('active');
-            }
+                
+                const targetLetter = document.getElementById(`${category}-letter`);
+                if (targetLetter) targetLetter.classList.add('active');
+                
+                // Scroll modal to top
+                const modalContainer = letterModal.querySelector('.letter-modal-container');
+                if (modalContainer) {
+                    modalContainer.scrollTop = 0;
+                }
+            }, 100);
         });
     });
 }
-// ---------- VIRTUAL GIFT BOX - NO LAYOUT SHIFT ----------
+// ===== VIRTUAL GIFT BOX =====
 function initGiftBox() {
     const openGiftBtn = document.getElementById('openGiftBoxBtn');
     const giftModal = document.getElementById('giftBoxModalOverlay');
@@ -312,53 +259,49 @@ function initGiftBox() {
     const giftBox = document.getElementById('giftBox');
     const chooseSection = document.getElementById('chooseGiftSection');
     
-    // Gift content sections
+    if (!giftModal || !giftBox) return;
+    
     const familyGift = document.getElementById('familyGift');
     const partnerGift = document.getElementById('partnerGift');
     const friendGift = document.getElementById('friendGift');
-    
-    // Back buttons
     const backFamily = document.getElementById('backFromFamily');
     const backPartner = document.getElementById('backFromPartner');
     const backFriend = document.getElementById('backFromFriend');
+    const chooseFamily = document.getElementById('chooseFamily');
+    const choosePartner = document.getElementById('choosePartner');
+    const chooseFriend = document.getElementById('chooseFriend');
     
-    // Calculate scrollbar width once
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.documentElement.style.setProperty('--scrollbar-width', scrollbarWidth + 'px');
-    
-    // Save scroll position
-    let scrollPosition = 0;
-    
-    // Open modal
-    if (openGiftBtn && giftModal) {
-        openGiftBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Save current scroll position
-            scrollPosition = window.scrollY;
-            
-            // Add modal-open class to body (prevents scroll with compensation)
-            document.body.classList.add('modal-open');
-            document.body.style.top = `-${scrollPosition}px`;
-            document.body.style.position = 'fixed';
-            document.body.style.left = '0';
-            document.body.style.right = '0';
-            document.body.style.width = '100%';
-            
-            // Show modal
-            giftModal.classList.add('active');
-            
-            // Reset gift box
-            resetGiftBox();
-        });
+    function openModal() {
+        // Store current scroll position
+        const scrollY = window.scrollY;
+        
+        // Lock body scroll
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.width = '100%';
+        
+        // Show modal
+        giftModal.classList.add('active');
+        
+        // Reset modal scroll position to top
+        const modalContainer = giftModal.querySelector('.giftbox-modal-container');
+        if (modalContainer) {
+            modalContainer.scrollTop = 0;
+        }
+        
+        // Reset gift box
+        resetGiftBox();
     }
     
-    // Close modal
     function closeModal() {
-        if (!giftModal) return;
+        // Get the scroll position
+        const scrollY = document.body.style.top;
         
-        // Remove modal class
-        document.body.classList.remove('modal-open');
+        // Unlock body scroll
+        document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.left = '';
@@ -366,133 +309,161 @@ function initGiftBox() {
         document.body.style.width = '';
         
         // Restore scroll position
-        window.scrollTo(0, scrollPosition);
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
         
         // Hide modal
         giftModal.classList.remove('active');
     }
     
+    // Open modal
+    if (openGiftBtn) {
+        openGiftBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal();
+        });
+    }
+    
+    // Close modal
     if (closeGiftBtn) {
-        closeGiftBtn.addEventListener('click', closeModal);
+        closeGiftBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeModal();
+        });
     }
     
     // Click outside to close
-    if (giftModal) {
-        giftModal.addEventListener('click', function(e) {
-            if (e.target === giftModal) {
-                closeModal();
-            }
-        });
-    }
+    giftModal.addEventListener('click', function(e) {
+        if (e.target === giftModal) {
+            closeModal();
+        }
+    });
+    
+    // Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && giftModal.classList.contains('active')) {
+            closeModal();
+        }
+    });
     
     // Open gift box
-    if (giftBox) {
-        giftBox.addEventListener('click', function() {
-            this.classList.remove('closed');
-            this.classList.add('opened');
-            
-            // Hide instruction
-            const instruction = document.querySelector('.gift-instruction');
-            if (instruction) {
-                instruction.style.opacity = '0';
-                instruction.style.pointerEvents = 'none';
-            }
-            
-            // Show choose section with animation
-            setTimeout(() => {
+    giftBox.addEventListener('click', function() {
+        if (this.classList.contains('opened')) return;
+        
+        this.classList.remove('closed');
+        this.classList.add('opened');
+        
+        const instruction = document.querySelector('.gift-instruction');
+        if (instruction) {
+            instruction.style.opacity = '0';
+            instruction.style.pointerEvents = 'none';
+        }
+        
+        setTimeout(() => {
+            if (chooseSection) {
                 chooseSection.style.display = 'block';
-                chooseSection.style.animation = 'fadeIn 0.5s ease';
-            }, 500);
-        });
-    }
-    
-    // CHOOSE FAMILY
-    document.getElementById('chooseFamily')?.addEventListener('click', function() {
-        animateChoice(this);
-        showGift('family');
+            }
+        }, 500);
     });
-    
-    // CHOOSE PARTNER
-    document.getElementById('choosePartner')?.addEventListener('click', function() {
-        animateChoice(this);
-        showGift('partner');
-    });
-    
-    // CHOOSE FRIEND
-    document.getElementById('chooseFriend')?.addEventListener('click', function() {
-        animateChoice(this);
-        showGift('friend');
-    });
-    
-    // BACK BUTTONS
-    if (backFamily) backFamily.addEventListener('click', backToChoose);
-    if (backPartner) backPartner.addEventListener('click', backToChoose);
-    if (backFriend) backFriend.addEventListener('click', backToChoose);
-    
-    function animateChoice(element) {
-        element.style.transform = 'scale(0.95)';
-        element.style.transition = 'transform 0.2s ease';
-        setTimeout(() => element.style.transform = 'scale(1)', 200);
-    }
     
     function showGift(type) {
-        // Hide choose section
-        chooseSection.style.display = 'none';
+        if (chooseSection) chooseSection.style.display = 'none';
         
-        // Hide all gifts
-        familyGift.style.display = 'none';
-        partnerGift.style.display = 'none';
-        friendGift.style.display = 'none';
+        if (familyGift) familyGift.style.display = 'none';
+        if (partnerGift) partnerGift.style.display = 'none';
+        if (friendGift) friendGift.style.display = 'none';
         
-        // Show selected gift with fade animation
         setTimeout(() => {
-            if (type === 'family') {
+            if (type === 'family' && familyGift) {
                 familyGift.style.display = 'block';
-                familyGift.style.animation = 'fadeIn 0.5s ease';
+                // Scroll modal to top when showing gift
+                const modalContainer = giftModal.querySelector('.giftbox-modal-container');
+                if (modalContainer) {
+                    modalContainer.scrollTop = 0;
+                }
             }
-            if (type === 'partner') {
+            if (type === 'partner' && partnerGift) {
                 partnerGift.style.display = 'block';
-                partnerGift.style.animation = 'fadeIn 0.5s ease';
+                const modalContainer = giftModal.querySelector('.giftbox-modal-container');
+                if (modalContainer) {
+                    modalContainer.scrollTop = 0;
+                }
             }
-            if (type === 'friend') {
+            if (type === 'friend' && friendGift) {
                 friendGift.style.display = 'block';
-                friendGift.style.animation = 'fadeIn 0.5s ease';
-            }
-            
-            // Scroll to top of gift content
-            if (giftModal) {
-                giftModal.scrollTop = 0;
+                const modalContainer = giftModal.querySelector('.giftbox-modal-container');
+                if (modalContainer) {
+                    modalContainer.scrollTop = 0;
+                }
             }
         }, 300);
     }
     
     function backToChoose() {
-        // Hide all gifts
-        familyGift.style.display = 'none';
-        partnerGift.style.display = 'none';
-        friendGift.style.display = 'none';
+        if (familyGift) familyGift.style.display = 'none';
+        if (partnerGift) partnerGift.style.display = 'none';
+        if (friendGift) friendGift.style.display = 'none';
         
-        // Show choose section
-        chooseSection.style.display = 'block';
-        chooseSection.style.animation = 'fadeIn 0.5s ease';
+        if (chooseSection) {
+            chooseSection.style.display = 'block';
+            // Scroll modal to top when going back
+            const modalContainer = giftModal.querySelector('.giftbox-modal-container');
+            if (modalContainer) {
+                modalContainer.scrollTop = 0;
+            }
+        }
     }
     
     function resetGiftBox() {
-        // Reset gift box
         giftBox.classList.remove('opened');
         giftBox.classList.add('closed');
         
-        // Show instruction
         const instruction = document.querySelector('.gift-instruction');
         if (instruction) {
             instruction.style.opacity = '1';
             instruction.style.pointerEvents = 'auto';
         }
         
-        // Hide all sections
-        chooseSection.style.display = 'none';
-        familyGift.style.display = 'none';
-        partnerGift.style.display = 'none';
-        friendGift.style.display = 'none';
+        if (chooseSection) chooseSection.style.display = 'none';
+        if (familyGift) familyGift.style.display = 'none';
+        if (partnerGift) partnerGift.style.display = 'none';
+        if (friendGift) friendGift.style.display = 'none';
+    }
+    
+    if (chooseFamily) {
+        chooseFamily.addEventListener('click', () => showGift('family'));
+    }
+    if (choosePartner) {
+        choosePartner.addEventListener('click', () => showGift('partner'));
+    }
+    if (chooseFriend) {
+        chooseFriend.addEventListener('click', () => showGift('friend'));
+    }
+    if (backFamily) {
+        backFamily.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            backToChoose(); 
+        });
+    }
+    if (backPartner) {
+        backPartner.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            backToChoose(); 
+        });
+    }
+    if (backFriend) {
+        backFriend.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            backToChoose(); 
+        });
     }
 }
+// ===== INITIALIZE =====
+document.addEventListener('DOMContentLoaded', () => {
+    new VintageNavigation();
+    initLoveLetters();
+    initGiftBox();
+    
+    // Force scrollbar to always be visible
+    document.documentElement.style.overflowY = 'scroll';
+});
+

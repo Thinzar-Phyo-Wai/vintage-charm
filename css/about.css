@@ -46,23 +46,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== Vintage Decorative Border ===== */
-.vintage-border {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        var(--accent-gold) 20%, 
-        var(--rust-accent) 40%, 
-        var(--accent-gold) 60%, 
-        var(--sage-green) 80%, 
-        transparent 100%);
-    z-index: 1002;
-    opacity: 0.6;
-}
 
 /* ===== Navigation Bar ===== */
 .navbar {

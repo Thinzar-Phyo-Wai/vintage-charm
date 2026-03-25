@@ -16,8 +16,7 @@
     </style>
 </head>
 <body>
-    <!-- Vintage Decorative Top Border -->
-    <div class="vintage-border"></div>
+  
     
     <!-- Navigation Bar -->
     <nav class="navbar">
@@ -59,6 +58,8 @@
         </div>
     </nav>
 
+    
+
      <!-- Hero Section -->
     <section class="crossword-hero">
         <div class="hero-pattern"></div>
@@ -75,6 +76,40 @@
             <p class="hero-subtitle">A vintage puzzle celebrating the ones we love</p>
         </div>
     </section>
+
+    <!-- Username Modal -->
+<div class="modal-overlay" id="usernameModal">
+    <div class="modal-container username-modal">
+        <div class="modal-header">
+            <i class="fas fa-user-circle"></i>
+            <h2>Welcome to Play Family Crossword</h2>
+        </div>
+        <div class="modal-body">
+            <div class="username-form">
+                <div class="form-group">
+                    <label for="usernameInput">
+                        <i class="fas fa-pen-fancy"></i>
+                        Enter your name to begin
+                    </label>
+                    <input type="text" id="usernameInput" placeholder="Your name..." maxlength="20" autocomplete="off">
+                </div>
+                <div class="saved-users-section" id="savedUsersSection" style="display: none;">
+                    <h3>Previous Players</h3>
+                    <div class="saved-users-list" id="savedUsersList"></div>
+                </div>
+                <button id="startGameBtn" class="vintage-btn primary">
+                    <i class="fas fa-play"></i> Start Game
+                </button>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <i class="fas fa-heart"></i>
+            <span>Your progress will be saved automatically</span>
+            <i class="fas fa-heart"></i>
+        </div>
+    </div>
+</div>
+
  <!-- Main Game Section -->
     <section class="crossword-main">
         <div class="container">
@@ -103,6 +138,23 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Add this after the stats-container div -->
+<div class="user-management">
+    <button id="changePlayerBtn" class="user-btn">
+        <i class="fas fa-user"></i>
+        <span id="playerNameDisplay">Player</span>
+    </button>
+    <button id="deleteScoreBtn" class="user-btn delete-btn" title="Delete Score">
+        <i class="fas fa-trash-alt"></i>
+    </button>
+    <button id="viewDataBtn" class="user-btn info-btn" title="View Saved Data">
+        <i class="fas fa-database"></i>
+    </button>
+</div>
+                
+                
+
                 <div class="current-clue-card">
                     <i class="fas fa-quote-left"></i>
                     <div class="clue-content">
@@ -111,6 +163,10 @@
                     </div>
                 </div>
             </div>
+
+            
+
+            
 
             <!-- Game Board & Clues - RESTRUCTURED -->
             <div class="game-layout">
@@ -327,6 +383,7 @@
   
     
     
+    
     <!--Vintage Footer -->
     <footer class="vintage-footer">
         <div class="footer-content">
@@ -343,5 +400,6 @@
 
     <script src="js/script.js"></script>
     <script src="js/game.js"></script>
+    
 </body>
 </html>
