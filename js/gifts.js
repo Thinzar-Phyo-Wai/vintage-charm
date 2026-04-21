@@ -7,7 +7,7 @@ class GiftRecommender {
   constructor() {
     // Category-Specific Gift Database
     this.giftDatabase = {
-      // 🏃 Sporty / Fit Category Gifts
+      //  Sporty / Fit Category Gifts
       "Sporty / Fit": [
         {
           name: "Premium Yoga Mat",
@@ -112,7 +112,7 @@ class GiftRecommender {
         },
       ],
 
-      // 🌿 Nature Lover Category Gifts
+      //  Nature Lover Category Gifts
       "Nature Lover": [
         {
           name: "Indoor Plant Collection",
@@ -126,8 +126,7 @@ class GiftRecommender {
         },
         {
           name: "Professional Gardening Set",
-          description:
-            "Premium garden tools for all gardening needs.",
+          description: "Premium garden tools for all gardening needs.",
           image:
             "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop",
           tags: ["Nature Lover"],
@@ -216,7 +215,7 @@ class GiftRecommender {
         },
       ],
 
-      // 👗 Fashionable Category Gifts
+      //  Fashionable Category Gifts
       Fashionable: [
         {
           name: "Designer Silk Scarf",
@@ -320,7 +319,7 @@ class GiftRecommender {
         },
       ],
 
-      // 🏠 Indoor Type Category Gifts
+      //  Indoor Type Category Gifts
       "Indoor Type": [
         {
           name: "Cozy Weighted Blanket",
@@ -424,7 +423,7 @@ class GiftRecommender {
         },
       ],
 
-      // ⛰️ Outdoor Type Category Gifts
+      //  Outdoor Type Category Gifts
       "Outdoor Type": [
         {
           name: "Adventure Backpack",

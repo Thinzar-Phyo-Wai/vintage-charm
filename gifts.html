@@ -1,263 +1,289 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vintage Charm</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/gift.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/gift.css" />
 
-    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap");
     </style>
-</head>
-<body>
-    
-    
+  </head>
+  <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="nav-container">
-            <!-- Logo on Left -->
-            <div class="logo-container">
-                <div class="logo">
-                    <span class="logo-main">Vintage</span>
-                    <span class="logo-sub">Charm</span>
-                </div>
-                <div class="logo-divider"></div>
-                <div class="logo-tagline">Surprise With Virtual Gifts</div>
-            </div>
-
-            <!-- Navigation Links on Right -->
-            <div class="nav-right">
-                <div class="nav-links" id="navLinks">
-                    <a href="index.html" class="nav-link active">
-                        <span class="nav-text">Home</span>
-                        <span class="nav-dot"></span>
-                    </a>
-                    <a href="about.html" class="nav-link">
-                        <span class="nav-text">About</span>
-                        <span class="nav-dot"></span>
-                    </a>
-                    <a href="game.html" class="nav-link">
-                        <span class="nav-text">Crossword</span>
-                        <span class="nav-dot"></span>
-                    </a>
-                     <a href="gifts.html" class="nav-link">
-                        <span class="nav-text">Gifts</span>
-                        <span class="nav-dot"></span>
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Toggle -->
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                    <span class="menu-line"></span>
-                    <span class="menu-line"></span>
-                    <span class="menu-line"></span>
-                </button>
-            </div>
+      <div class="nav-container">
+        <!-- Logo on Left -->
+        <div class="logo-container">
+          <div class="logo">
+            <span class="logo-main">Vintage</span>
+            <span class="logo-sub">Charm</span>
+          </div>
+          <div class="logo-divider"></div>
+          <div class="logo-tagline">Surprise With Virtual Gifts</div>
         </div>
+
+        <!-- Navigation Links on Right -->
+        <div class="nav-right">
+          <div class="nav-links" id="navLinks">
+            <a href="index.html" class="nav-link active">
+              <span class="nav-text">Home</span>
+              <span class="nav-dot"></span>
+            </a>
+            <a href="about.html" class="nav-link">
+              <span class="nav-text">About</span>
+              <span class="nav-dot"></span>
+            </a>
+            <a href="game.html" class="nav-link">
+              <span class="nav-text">Crossword</span>
+              <span class="nav-dot"></span>
+            </a>
+            <a href="gifts.html" class="nav-link">
+              <span class="nav-text">Gifts</span>
+              <span class="nav-dot"></span>
+            </a>
+          </div>
+
+          <!-- Mobile Menu Toggle -->
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+          </button>
+        </div>
+      </div>
     </nav>
 
-     <!-- Main Recommender Container -->
+    <!-- Main Recommender Container -->
     <main class="recommender-container">
-        <!-- Player Modal -->
-        <div id="playerModal" class="player-modal">
-            <div class="modal-content">
-                <div class="modal-decoration"></div>
-                <div class="modal-icon">🎁</div>
-                <h2>Welcome to Gift Finder</h2>
-                <p>Enter your name to start finding perfect gifts</p>
-                <input type="text" id="playerNameInput" placeholder="Your name..." maxlength="20">
-                <div class="saved-players" id="savedPlayers" style="display: none;">
-                    <div class="saved-title">Recent Players</div>
-                    <div class="saved-list" id="savedList"></div>
-                </div>
-                <button id="startGameBtn" class="start-btn">Start Journey</button>
-            </div>
+      <!-- Player Modal -->
+      <div id="playerModal" class="player-modal">
+        <div class="modal-content">
+          <div class="modal-decoration"></div>
+          <div class="modal-icon">🎁</div>
+          <h2>Welcome to Gift Finder</h2>
+          <p>Enter your name to start finding perfect gifts</p>
+          <input
+            type="text"
+            id="playerNameInput"
+            placeholder="Your name..."
+            maxlength="20"
+          />
+          <div class="saved-players" id="savedPlayers" style="display: none">
+            <div class="saved-title">Recent Players</div>
+            <div class="saved-list" id="savedList"></div>
+          </div>
+          <button id="startGameBtn" class="start-btn">Start Journey</button>
         </div>
+      </div>
 
-       
-
-            <!-- Header Section -->
-            <div class="recommender-header">
-                <div class="header-icon">
-                    <i class="fas fa-gift"></i>
-                    <i class="fas fa-heart heart-icon"></i>
-                </div>
-                <h1>Find the Perfect Gift</h1>
-                <p>Select preferences and discover thoughtful gift ideas for your family, friends and partners.</p>
-            </div>
-<!-- Game Interface -->
-<div id="gameInterface" class="game-interface" style="display: none;">
-    <!-- Player Info Card - Redesigned Structure -->
-    <div class="player-info-card">
-        <!-- Left Section - Avatar & Name -->
-        <div class="player-info-left">
+      <!-- Header Section -->
+      <div class="recommender-header">
+        <div class="header-icon">
+          <i class="fas fa-gift"></i>
+          <i class="fas fa-heart heart-icon"></i>
+        </div>
+        <h1>Find the Perfect Gift</h1>
+        <p>
+          Select preferences and discover thoughtful gift ideas for your family,
+          friends and partners.
+        </p>
+      </div>
+      <!-- Game Interface -->
+      <div id="gameInterface" class="game-interface" style="display: none">
+        <!-- Player Info Card - Redesigned Structure -->
+        <div class="player-info-card">
+          <!-- Left Section - Avatar & Name -->
+          <div class="player-info-left">
             <div class="player-avatar-wrapper">
-                <div class="player-avatar-ring"></div>
-                <div class="player-avatar">
-                    <i class="fas fa-user-astronaut"></i>
-                </div>
-                <div class="player-badge">
-                    <i class="fas fa-star"></i> Explorer
-                </div>
+              <div class="player-avatar-ring"></div>
+              <div class="player-avatar">
+                <i class="fas fa-user-astronaut"></i>
+              </div>
+              <div class="player-badge">
+                <i class="fas fa-star"></i> Explorer
+              </div>
             </div>
             <div class="player-info-text">
-                <h3 id="displayPlayerName">Player</h3>
-                <div class="player-title">
-                    <i class="fas fa-gift"></i>
-                    <span>Gift Hunter</span>
-                </div>
+              <h3 id="displayPlayerName">Player</h3>
+              <div class="player-title">
+                <i class="fas fa-gift"></i>
+                <span>Gift Hunter</span>
+              </div>
             </div>
-        </div>
-        
-        <!-- Center Section - Stats -->
-        <div class="player-info-center">
+          </div>
+
+          <!-- Center Section - Stats -->
+          <div class="player-info-center">
             <div class="stat-modern">
-                <div class="stat-icon-wrapper">
-                    <i class="fas fa-gift"></i>
+              <div class="stat-icon-wrapper">
+                <i class="fas fa-gift"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label-modern">Gifts Found</span>
+                <span class="stat-value-modern" id="giftsFound">0</span>
+                <div class="stat-trend">
+                  <i class="fas fa-arrow-up"></i>
+                  <span>+12 this week</span>
                 </div>
-                <div class="stat-content">
-                    <span class="stat-label-modern">Gifts Found</span>
-                    <span class="stat-value-modern" id="giftsFound">0</span>
-                    <div class="stat-trend">
-                        <i class="fas fa-arrow-up"></i>
-                        <span>+12 this week</span>
-                    </div>
-                </div>
+              </div>
             </div>
-            
+
             <div class="stat-divider"></div>
-            
+
             <div class="stat-modern">
-                <div class="stat-icon-wrapper">
-                    <i class="fas fa-search"></i>
+              <div class="stat-icon-wrapper">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label-modern">Total Searches</span>
+                <span class="stat-value-modern" id="searchesCount">0</span>
+                <div class="stat-trend">
+                  <i class="fas fa-chart-line"></i>
+                  <span>Active</span>
                 </div>
-                <div class="stat-content">
-                    <span class="stat-label-modern">Total Searches</span>
-                    <span class="stat-value-modern" id="searchesCount">0</span>
-                    <div class="stat-trend">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Active</span>
-                    </div>
-                </div>
+              </div>
             </div>
-        </div>
-        
-        <!-- Right Section - Action Button -->
-        <div class="player-info-right">
+          </div>
+
+          <!-- Right Section - Action Button -->
+          <div class="player-info-right">
             <button id="changePlayerBtn" class="change-player-btn">
-                <i class="fas fa-exchange-alt"></i>
-                <span>Switch Player</span>
+              <i class="fas fa-exchange-alt"></i>
+              <span>Switch Player</span>
             </button>
+          </div>
         </div>
-    </div>
-            <!-- Search Criteria Section -->
-            <div class="criteria-section">
-                <div class="criteria-grid">
-                    <!-- Age Category -->
-                    <div class="criteria-card">
-                        <div class="card-icon">
-                            <i class="fas fa-birthday-cake"></i>
-                        </div>
-                        <h3>Age</h3>
-                        <select id="ageSelect" class="criteria-select">
-                            <option value="25-30">25 - 30 years</option>
-                            <option value="31-35">31 - 35 years</option>
-                            <option value="36-40">36 - 40 years</option>
-                            <option value="41-45">41 - 45 years</option>
-                            <option value="46-50">46 - 50 years</option>
-                            <option value="51-55">51 - 55 years</option>
-                            <option value="56-60">56 - 60 years</option>
-                        </select>
-                    </div>
-
-                    <!-- Personality Category -->
-                    <div class="criteria-card">
-                        <div class="card-icon">
-                            <i class="fas fa-smile"></i>
-                        </div>
-                        <h3>Personality</h3>
-                        <select id="personalitySelect" class="criteria-select">
-                            <option value="Sporty / Fit">🏃 Sporty / Fit</option>
-                            <option value="Nature Lover">🌿 Nature Lover</option>
-                            <option value="Fashionable">👗 Fashionable</option>
-                            <option value="Indoor Type">🏠 Indoor Type</option>
-                            <option value="Outdoor Type">⛰️ Outdoor Type</option>
-                        </select>
-                    </div>
-
-                    <!-- Gender Category -->
-                    <div class="criteria-card">
-                        <div class="card-icon">
-                            <i class="fas fa-venus-mars"></i>
-                        </div>
-                        <h3>Gender</h3>
-                        <select id="genderSelect" class="criteria-select">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Either" selected>Either</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Search Button -->
-                <div class="search-section">
-                    <button id="searchBtn" class="search-btn">
-                        <i class="fas fa-search"></i>
-                        <span>Generate 3 Perfect Gifts</span>
-                        <i class="fas fa-magic magic-icon"></i>
-                    </button>
-                </div>
+        <!-- Search Criteria Section -->
+        <div class="criteria-section">
+          <div class="criteria-grid">
+            <!-- Age Category -->
+            <div class="criteria-card">
+              <div class="card-icon">
+                <i class="fas fa-birthday-cake"></i>
+              </div>
+              <h3>Age</h3>
+              <select id="ageSelect" class="criteria-select">
+                <option value="25-30">25 - 30 years</option>
+                <option value="31-35">31 - 35 years</option>
+                <option value="36-40">36 - 40 years</option>
+                <option value="41-45">41 - 45 years</option>
+                <option value="46-50">46 - 50 years</option>
+                <option value="51-55">51 - 55 years</option>
+                <option value="56-60">56 - 60 years</option>
+              </select>
             </div>
 
-            <!-- Recommendations Section -->
-            <div id="recommendationsSection" class="recommendations-section" style="display: none;">
-                <div class="section-title">
-                    <i class="fas fa-star"></i>
-                    <h2>Recommended for You</h2>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div id="recommendationsGrid" class="recommendations-grid"></div>
+            <!-- Personality Category -->
+            <div class="criteria-card">
+              <div class="card-icon">
+                <i class="fas fa-smile"></i>
+              </div>
+              <h3>Personality</h3>
+              <select id="personalitySelect" class="criteria-select">
+                <option value="Sporty / Fit">🏃 Sporty / Fit</option>
+                <option value="Nature Lover">🌿 Nature Lover</option>
+                <option value="Fashionable">👗 Fashionable</option>
+                <option value="Indoor Type">🏠 Indoor Type</option>
+                <option value="Outdoor Type">⛰️ Outdoor Type</option>
+              </select>
             </div>
 
-            <!-- Loading Animation -->
-            <div id="loadingAnimation" class="loading-animation" style="display: none;">
-                <div class="gift-loader">
-                    <div class="gift-box-loader"></div>
-                    <div class="sparkles"></div>
-                </div>
-                <p>Finding the perfect gifts...</p>
+            <!-- Gender Category -->
+            <div class="criteria-card">
+              <div class="card-icon">
+                <i class="fas fa-venus-mars"></i>
+              </div>
+              <h3>Gender</h3>
+              <select id="genderSelect" class="criteria-select">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Either" selected>Either</option>
+              </select>
             </div>
+          </div>
+
+          <!-- Search Button -->
+          <div class="search-section">
+            <button id="searchBtn" class="search-btn">
+              <i class="fas fa-search"></i>
+              <span>Generate 3 Perfect Gifts</span>
+              <i class="fas fa-magic magic-icon"></i>
+            </button>
+          </div>
         </div>
+
+        <!-- Recommendations Section -->
+        <div
+          id="recommendationsSection"
+          class="recommendations-section"
+          style="display: none"
+        >
+          <div class="section-title">
+            <i class="fas fa-star"></i>
+            <h2>Recommended for You</h2>
+            <i class="fas fa-star"></i>
+          </div>
+          <div id="recommendationsGrid" class="recommendations-grid"></div>
+        </div>
+
+        <!-- Loading Animation -->
+        <div
+          id="loadingAnimation"
+          class="loading-animation"
+          style="display: none"
+        >
+          <div class="gift-loader">
+            <div class="gift-box-loader"></div>
+            <div class="sparkles"></div>
+          </div>
+          <p>Finding the perfect gifts...</p>
+        </div>
+      </div>
     </main>
 
     <!-- Sound Toggle -->
     <button id="soundToggle" class="sound-toggle">
-        <i class="fas fa-volume-up"></i>
+      <i class="fas fa-volume-up"></i>
     </button>
-
 
     <!-- Vintage Footer -->
     <footer class="vintage-footer">
-        <div class="footer-content">
-            <div class="footer-line"></div>
-            <p class="footer-text">Crafted with elegance • Bringing joy to relationships worldwide</p>
-            <div class="social-icons">
-                <a href="https://www.facebook.com" class="social-icon"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="https://pinterest.com" class="social-icon"><i class="fab fa-pinterest"></i></a>
-            </div>
+      <div class="footer-content">
+        <div class="footer-line"></div>
+        <p class="footer-text">
+          Crafted with elegance • Bringing joy to relationships worldwide
+        </p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com" class="social-icon"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com" class="social-icon"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://twitter.com" class="social-icon"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://pinterest.com" class="social-icon"
+            ><i class="fab fa-pinterest"></i
+          ></a>
         </div>
+      </div>
     </footer>
 
     <script src="js/script.js"></script>
     <script src="js/gifts.js"></script>
-</body>
+  </body>
 </html>

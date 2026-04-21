@@ -53,7 +53,7 @@ class FamilyCrossword {
     // Show username modal on start
     setTimeout(() => this.showUsernameModal(), 100);
 
-    console.log("✨ Family Crossword initialized for", this.playerName);
+    console.log("Family Crossword initialized for", this.playerName);
   }
 
   // ---------- USERNAME MODAL METHODS ----------
@@ -150,11 +150,11 @@ class FamilyCrossword {
         this.loadGameState(gameState);
         this.showMessage(`Welcome back, ${username}!`, "success");
       } catch (e) {
-        this.performReset(); // Use performReset instead of resetGame()
+        this.performReset(); 
         this.showMessage(`Welcome, ${username}!`, "success");
       }
     } else {
-      this.performReset(); // Use performReset instead of resetGame()
+      this.performReset(); 
       this.showMessage(`Welcome, ${username}!`, "success");
     }
 
@@ -225,7 +225,7 @@ class FamilyCrossword {
 
     return true;
   }
-  // ---------- DELETE SCORE WITH BEAUTIFUL DIALOG ----------
+  // ---------- DELETE SCORE----------
   deleteScore() {
     if (!this.playerName || this.playerName === "Player") {
       this.showMessage("No player selected", "warning");
@@ -334,7 +334,7 @@ class FamilyCrossword {
     };
   }
 
-  // ---------- VIEW SAVED DATA WITH BEAUTIFUL DIALOG ----------
+  // ---------- VIEW SAVED DATA ----------
   viewSavedData() {
     if (!this.playerName || this.playerName === "Player") {
       this.showMessage("No player selected", "warning");
@@ -1572,7 +1572,7 @@ class FamilyCrossword {
     // Add completion bonus
     this.score += 100;
     this.updateUI();
-    this.saveGame(); 
+    this.saveGame();
 
     // Show victory modal
     const modal = document.getElementById("victoryModal");
