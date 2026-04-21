@@ -1,13 +1,38 @@
-
-# ✨ Vintage Charm
+✨ Vintage Charm
 
 A beautiful virtual gift website where love meets nostalgia. Create personalized surprises, read heartfelt love letters and play family-themed crossword puzzles.
 
-## 🌟 Features
+🌐 Live Site: https://thinzar-phyo-wai.github.io/vintage-charm/
 
-- 💌 **Love Letters** - Heartfelt messages for family, partners, and friends
-- 🎁 Surprise Gift Box - Beautiful framed gifts with heartfelt messages for your loved ones
-- 🎮 **Family Crossword** - Fun puzzles celebrating the ones we love
+🌟 Features
 
-=======
+    💌 Love Letters - Heartfelt messages for family, partners, and friends. Simply click to open and read personalized letters.
+
+    🎁 Surprise Gift Box - Beautiful framed gifts with heartfelt messages for your loved ones. Select from family, friends, or partner categories.
+
+    🎮 Family Crossword - Fun 12×12 interactive puzzle celebrating the ones we love. Includes hints, scoring, progress tracking, and local storage to save your game.
+
+    🎲 Random Gift Generator - Generate personalized gift ideas by selecting age, category, and gender. Three suggestions appear with sound effects.
+
+🛠️ Technologies Used in this Project
+
+    HTML, CSS, JavaScript
+
+    DOM Manipulation
+
+    Local Storage
+
+    Event Handling
+
+    Responsive Design
+
+🚀 How to Use
+
+    Visit the live site link above
+
+    Read love letters or open surprise gift boxes
+
+    Play the crossword with auto-save progress
+
+    Try the gift generator for personalized ideas
 
